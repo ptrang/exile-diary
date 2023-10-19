@@ -153,6 +153,7 @@ const getSettings = async (needProfile = true) => {
     username,
     characterName: activeProfile?.characterName,
     league: activeProfile?.league,
+    nearestTradeLeague: activeProfile?.nearestTradeLeague,
     token,
   };
 };

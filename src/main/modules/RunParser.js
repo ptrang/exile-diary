@@ -1444,7 +1444,7 @@ async function recheckGained(startDate = null) {
   return new Promise((resolve, reject) => {
     DB.all(sql, async (err, rows) => {
       if (err) {
-        logAndEmit(err.message);
+        logAndEmit(JSON.stringify(err));
       } else {
         for (let i = 0; i < rows.length; i++) {
           let row = rows[i];

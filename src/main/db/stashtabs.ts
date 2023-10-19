@@ -42,7 +42,7 @@ const StashTabs = {
     }
   },
   getLatestStashAge: async (league: string): Promise<number> => {
-    logger.info(`Getting latest stash age from DB`);
+    logger.info(`Getting latest stash age from DB ${league}`);
     const query =
       "SELECT IFNULL(MAX(timestamp), -1) AS timestamp FROM stashes WHERE items <> '{}' ";
     try {
@@ -68,7 +68,7 @@ const StashTabs = {
   getLatestStashValue: async (
     league: string
   ): Promise<{ timestamp: number; value: number; len: number }> => {
-    logger.info(`Getting latest stash value from DB`);
+    logger.info(`Getting latest stash value from DB ${league}`);
     const query =
       'SELECT timestamp, value, length(items) as len FROM stashes order by timestamp desc limit 1';
     try {
