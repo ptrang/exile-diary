@@ -68,10 +68,10 @@ class RateGetterV2 {
     let league = activeProfile.league;
 
     if (
+      activeProfile &&
       activeProfile.league &&
       activeProfile.league.includes('SSF') &&
-      activeProfile &&
-      activeProfile.overrideSSF
+      !activeProfile.overrideSSF
     ) {
       // override ssf and get item prices from corresponding trade league
       // TODO undocumented league naming convention change in 3.13... must check this every league from now on
@@ -99,11 +99,11 @@ class RateGetterV2 {
       logger.info('No league set, will not attempt to get prices');
       return;
     }
-
     // no need for exchange rates in SSF
     if (activeProfile.league.includes('SSF') && !activeProfile.overrideSSF) {
       return;
     }
+
 
     if (Utils.isPrivateLeague(activeProfile.league)) {
       // TODO: Fix this part with private leagues
